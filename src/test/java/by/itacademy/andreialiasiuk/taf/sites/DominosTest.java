@@ -12,10 +12,7 @@ public class DominosTest {
         DominosPage dominosPage = new DominosPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://dominos.by/");
-
-        WebElement closeModalIcon = driver.findElement(By.xpath(dominosPage.closeModalIconXpath));
-        closeModalIcon.click();
+        driver.get(dominosPage.baseURL);
 
         WebElement loginButtonHomePage = driver.findElement(By.xpath(dominosPage.loginButtonHomePageXpath));
         loginButtonHomePage.click();
@@ -37,10 +34,7 @@ public class DominosTest {
         DominosPage dominosPage = new DominosPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://dominos.by/");
-
-        WebElement closeModalIcon = driver.findElement(By.xpath(dominosPage.closeModalIconXpath));
-        closeModalIcon.click();
+        driver.get(dominosPage.baseURL);
 
         WebElement loginButtonHomePage = driver.findElement(By.xpath(dominosPage.loginButtonHomePageXpath));
         loginButtonHomePage.click();
