@@ -3,6 +3,7 @@ package by.itacademy.andreialiasiuk.taf.sites;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
@@ -45,7 +46,8 @@ public class BookingTest {
     @Test
     public void testLoginWithValidEmail() {
         BookingPage bookingPage = new BookingPage();
-        ChromeDriver driver = new ChromeDriver();
+        //ChromeDriver driver = new ChromeDriver();
+        FirefoxDriver driver = new FirefoxDriver();
         driver.get("https://www.booking.com/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -78,7 +80,7 @@ public class BookingTest {
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
-        WebElement submitButton = driver.findElement(By.xpath((bookingPage.submitButtonXpath)));
+        WebElement submitButton = driver.findElement(By.xpath("//*[@id='root']//form/div[2]/button"));
         submitButton.click();
     }
 
