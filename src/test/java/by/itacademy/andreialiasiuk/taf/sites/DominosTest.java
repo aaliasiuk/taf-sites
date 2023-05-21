@@ -28,6 +28,8 @@ public class DominosTest {
 
         WebElement submitButton = driver.findElement(By.xpath(dominosPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
@@ -51,6 +53,8 @@ public class DominosTest {
 
         WebElement submitButton = driver.findElement(By.xpath(dominosPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
     }
 }
 

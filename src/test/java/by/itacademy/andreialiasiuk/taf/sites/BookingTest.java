@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
+
 import java.util.concurrent.TimeUnit;
 
 public class BookingTest {
@@ -25,6 +26,8 @@ public class BookingTest {
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
+        driver.quit();
+
     }
 
     @Test(description = "вход с некорректным Email (например, email)")
@@ -44,6 +47,7 @@ public class BookingTest {
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
+        driver.quit();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com)")
@@ -66,6 +70,8 @@ public class BookingTest {
 
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
+
+        driver.quit();
     }
 
     @Test(description = "вход с корректным Email и пустым паролем")
@@ -90,10 +96,12 @@ public class BookingTest {
 
         WebElement submitButton = driver.findElement(By.xpath(bookingPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
     }
 
     @Test(description = "вход с корректным Email и любым паролем")
-    public void testLoginValidEmailRandomPassword(){
+    public void testLoginValidEmailRandomPassword() {
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://www.booking.com/");
@@ -117,6 +125,8 @@ public class BookingTest {
 
         WebElement submitButton = driver.findElement(By.xpath((bookingPage.submitButtonXpath)));
         submitButton.click();
+
+        driver.quit();
 
     }
 }

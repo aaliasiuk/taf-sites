@@ -24,6 +24,8 @@ public class TripadvisorTest {
 
         WebElement submitButton = driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
     }
 
     @Test(description = "вход с некорректным Email (например, email)")
@@ -44,6 +46,8 @@ public class TripadvisorTest {
 
         WebElement submitButton = driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и пустым Password")
@@ -64,6 +68,8 @@ public class TripadvisorTest {
 
         WebElement submitButton = driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
 
     }
 
@@ -88,5 +94,7 @@ public class TripadvisorTest {
 
         WebElement submitButton = driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
     }
 }

@@ -17,6 +17,8 @@ public class PizzatempoTest {
         WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
         submitButton.click();
 
+        driver.quit();
+
     }
 
     @Test(description = "вход с некорректным E-mail (например, email)")
@@ -31,6 +33,8 @@ public class PizzatempoTest {
 
         WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
     }
 
     @Test(description = "вход с пустым E-mail и любым паролем")
@@ -45,6 +49,8 @@ public class PizzatempoTest {
 
         WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и пустым паролем")
@@ -59,6 +65,8 @@ public class PizzatempoTest {
 
         WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
@@ -76,6 +84,8 @@ public class PizzatempoTest {
 
         WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
         submitButton.click();
+
+        driver.quit();
 
     }
 }
