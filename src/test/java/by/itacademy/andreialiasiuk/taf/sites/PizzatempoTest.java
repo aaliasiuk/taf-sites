@@ -1,11 +1,9 @@
 package by.itacademy.andreialiasiuk.taf.sites;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import javax.management.DescriptorKey;
 
 public class PizzatempoTest {
     @Test
@@ -32,7 +30,7 @@ public class PizzatempoTest {
     }
 
     @Test
-    public void testLoginBlankEmailRandomPassword(){
+    public void testLoginBlankEmailRandomPassword() {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -41,8 +39,9 @@ public class PizzatempoTest {
         driver.findElement(By.xpath(pizzatempoPage.passwordInputFieldXpath)).sendKeys("randompassword");
         driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
     }
+
     @Test
-    public void testLoginValidEmailBlankPassword(){
+    public void testLoginValidEmailBlankPassword() {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -51,8 +50,9 @@ public class PizzatempoTest {
         driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath)).sendKeys("validemail@mail.com");
         driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
     }
+
     @Test
-    public void testLoginValidEmailRandomPassword(){
+    public void testLoginValidEmailRandomPassword() {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
