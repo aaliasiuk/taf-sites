@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class TripadvisorTest {
-    @Test
+    @Test(description = "вход с пустым Email и Password")
     public void testLoginWithEmptyEmailEmptyPassword() {
         TripadvisorPage tripadvisorPage = new TripadvisorPage();
         ChromeDriver driver = new ChromeDriver();
@@ -27,7 +27,7 @@ public class TripadvisorTest {
         driver.quit();
     }
 
-    @Test
+    @Test(description = "вход с некорректным Email (например, email)")
     public void testLoginWithInvalidEmail() {
         TripadvisorPage tripadvisorPage = new TripadvisorPage();
         ChromeDriver driver = new ChromeDriver();
@@ -45,7 +45,7 @@ public class TripadvisorTest {
         driver.quit();
     }
 
-    @Test
+    @Test(description = "вход с корректной записью Email (например, test@mail.com) и пустым Password")
     public void testLoginWithValidEmailEmptyPassword() {
         TripadvisorPage tripadvisorPage = new TripadvisorPage();
         ChromeDriver driver = new ChromeDriver();
@@ -63,7 +63,7 @@ public class TripadvisorTest {
         driver.quit();
 
     }
-    @Test
+    @Test(description = "вход с корректным Email и любым паролем")
     public void testLoginWithValidEmailRandomPassword(){
         TripadvisorPage tripadvisorPage = new TripadvisorPage();
         ChromeDriver driver = new ChromeDriver();

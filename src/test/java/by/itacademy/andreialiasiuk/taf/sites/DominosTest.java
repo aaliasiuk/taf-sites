@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class DominosTest {
 
-    @Test
+    @Test(description = "вход с некорректным Email (например, email) и любым паролем")
     public void loginWithInvalidEmailRandomPassword() {
         DominosPage dominosPage = new DominosPage();
         ChromeDriver driver = new ChromeDriver();
@@ -19,7 +19,7 @@ public class DominosTest {
         driver.findElement(By.xpath(dominosPage.passwordInputFieldXpath)).sendKeys("randompassword");
         driver.findElement(By.xpath(dominosPage.submitButtonXpath)).click();
     }
-    @Test
+    @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
     public void testLoginValidEmailRandomPassword(){
         DominosPage dominosPage = new DominosPage();
         ChromeDriver driver = new ChromeDriver();

@@ -8,8 +8,8 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class BookingTest {
-    @Test
-    public void testLoginWithEmptyEmail() {
+    @Test(description = "вход с пустым Email")
+    public void testLoginEmptyEmail() {
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://www.booking.com/");
@@ -25,8 +25,8 @@ public class BookingTest {
 
     }
 
-    @Test
-    public void testLoginWithInvalidEmail() {
+    @Test(description = "вход с некорректным Email (например, email)")
+    public void testLoginInvalidEmail() {
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://www.booking.com/");
@@ -43,8 +43,8 @@ public class BookingTest {
 
     }
 
-    @Test
-    public void testLoginWithValidEmail() {
+    @Test(description = "вход с корректной записью Email (например, test@mail.com)")
+    public void testLoginValidEmail() {
         BookingPage bookingPage = new BookingPage();
         //ChromeDriver driver = new ChromeDriver();
         FirefoxDriver driver = new FirefoxDriver();
@@ -62,8 +62,8 @@ public class BookingTest {
         buttonContinueWithEmail.click();
     }
 
-    @Test
-    public void testLoginWithValidEmailEmptyPassword() {
+    @Test(description = "вход с корректным Email и пустым паролем")
+    public void testLoginValidEmailEmptyPassword() {
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://www.booking.com/");
@@ -84,8 +84,8 @@ public class BookingTest {
         submitButton.click();
     }
 
-    @Test
-    public void testLoginWithValidEmailAnyPassword(){
+    @Test(description = "вход с корректным Email и любым паролем")
+    public void testLoginValidEmailRandomPassword(){
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://www.booking.com/");

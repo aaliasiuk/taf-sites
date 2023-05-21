@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 
 public class PizzatempoTest {
-    @Test
+    @Test(description = "вход с пустым E-mail и пустым Пароль")
     public void testLoginBlankEmailBlankPassword() {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
@@ -17,7 +17,7 @@ public class PizzatempoTest {
 
     }
 
-    @Test
+    @Test(description = "вход с некорректным E-mail (например, email)")
     public void testLoginInvalidEmail() {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
@@ -29,7 +29,7 @@ public class PizzatempoTest {
         driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
     }
 
-    @Test
+    @Test(description = "вход с пустым E-mail и любым паролем")
     public void testLoginBlankEmailRandomPassword() {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
@@ -40,7 +40,7 @@ public class PizzatempoTest {
         driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
     }
 
-    @Test
+    @Test(description = "вход с корректной записью Email (например, test@mail.com) и пустым паролем")
     public void testLoginValidEmailBlankPassword() {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
@@ -51,7 +51,7 @@ public class PizzatempoTest {
         driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
     }
 
-    @Test
+    @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
     public void testLoginValidEmailRandomPassword() {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
