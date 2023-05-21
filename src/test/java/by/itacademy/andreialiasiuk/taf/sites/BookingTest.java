@@ -46,8 +46,8 @@ public class BookingTest {
     @Test(description = "вход с корректной записью Email (например, test@mail.com)")
     public void testLoginValidEmail() {
         BookingPage bookingPage = new BookingPage();
-        //ChromeDriver driver = new ChromeDriver();
-        FirefoxDriver driver = new FirefoxDriver();
+        ChromeDriver driver = new ChromeDriver();
+        //FirefoxDriver driver = new FirefoxDriver();
         driver.get("https://www.booking.com/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
