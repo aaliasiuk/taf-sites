@@ -13,7 +13,7 @@ public class BookingTest {
     public void testLoginEmptyEmail() {
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
-        driver.get("https://www.booking.com/");
+        driver.get(bookingPage.baseURL);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -34,7 +34,7 @@ public class BookingTest {
     public void testLoginInvalidEmail() {
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
-        driver.get("https://www.booking.com/");
+        driver.get(bookingPage.baseURL);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -55,7 +55,7 @@ public class BookingTest {
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
         //FirefoxDriver driver = new FirefoxDriver();
-        driver.get("https://www.booking.com/");
+        driver.get(bookingPage.baseURL);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -78,7 +78,7 @@ public class BookingTest {
     public void testLoginValidEmailEmptyPassword() {
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
-        driver.get("https://www.booking.com/");
+        driver.get(bookingPage.baseURL);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -104,7 +104,7 @@ public class BookingTest {
     public void testLoginValidEmailRandomPassword() {
         BookingPage bookingPage = new BookingPage();
         ChromeDriver driver = new ChromeDriver();
-        driver.get("https://www.booking.com/");
+        driver.get(bookingPage.baseURL);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 

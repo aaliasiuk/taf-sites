@@ -13,7 +13,7 @@ public class TripadvisorTest {
         TripadvisorPage tripadvisorPage = new TripadvisorPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.tripadvisor.com/");
+        driver.get(tripadvisorPage.baseURL);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         WebElement signInButton = driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath));
@@ -33,7 +33,7 @@ public class TripadvisorTest {
         TripadvisorPage tripadvisorPage = new TripadvisorPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.tripadvisor.com/");
+        driver.get(tripadvisorPage.baseURL);
 
         WebElement signInButton = driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath));
         signInButton.click();
@@ -55,7 +55,7 @@ public class TripadvisorTest {
         TripadvisorPage tripadvisorPage = new TripadvisorPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.tripadvisor.com/");
+        driver.get(tripadvisorPage.baseURL);
 
         WebElement signInButton = driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath));
         signInButton.click();
@@ -78,7 +78,7 @@ public class TripadvisorTest {
         TripadvisorPage tripadvisorPage = new TripadvisorPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.tripadvisor.com/");
+        driver.get(tripadvisorPage.baseURL);
 
         WebElement signInButton = driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath));
         signInButton.click();

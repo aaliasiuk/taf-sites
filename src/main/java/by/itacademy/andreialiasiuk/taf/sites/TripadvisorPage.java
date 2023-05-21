@@ -6,4 +6,5 @@ public class TripadvisorPage {
     String emailInputFieldXpath = "//*[@id='regSignIn.email']";
     String passwordInputFieldXpath = "//*[@id='regSignIn.password']";
     String submitButtonXpath = "//*[@id='regSignIn']/div[4]/button[1]";
+    String baseURL = "https://www.tripadvisor.com/";
 }

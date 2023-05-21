@@ -7,5 +7,6 @@ public class BookingPage {
     String continueWithEmailButtonXpath = "//div/button[@type='submit']";
     String passwordInputFieldXpath = "//*[@id='password']";
     String submitButtonXpath = "//div/button[@type='submit']";
+    String baseURL = "https://www.booking.com/";
 
 }

@@ -12,7 +12,7 @@ public class PizzatempoTest {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.pizzatempo.by/");
+        driver.get(pizzatempoPage.baseURL);
 
         WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
         submitButton.click();
@@ -26,7 +26,7 @@ public class PizzatempoTest {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.pizzatempo.by/");
+        driver.get(pizzatempoPage.baseURL);
 
         WebElement emailInputField = driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath));
         emailInputField.sendKeys("invalidemail");
@@ -42,7 +42,7 @@ public class PizzatempoTest {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.pizzatempo.by/");
+        driver.get(pizzatempoPage.baseURL);
 
         WebElement passwordInputField = driver.findElement(By.xpath(pizzatempoPage.passwordInputFieldXpath));
         passwordInputField.sendKeys("randompassword");
@@ -58,7 +58,7 @@ public class PizzatempoTest {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.pizzatempo.by/");
+        driver.get(pizzatempoPage.baseURL);
 
         WebElement emailInputField = driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath));
         emailInputField.sendKeys("validemail@mail.com");
@@ -74,7 +74,7 @@ public class PizzatempoTest {
         PizzatempoPage pizzatempoPage = new PizzatempoPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.pizzatempo.by/");
+        driver.get(pizzatempoPage.baseURL);
 
         WebElement emailInputField = driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath));
         emailInputField.sendKeys("validemail@mail.com");
