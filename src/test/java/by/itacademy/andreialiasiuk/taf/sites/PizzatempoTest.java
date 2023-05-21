@@ -1,6 +1,7 @@
 package by.itacademy.andreialiasiuk.taf.sites;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
@@ -13,7 +14,8 @@ public class PizzatempoTest {
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by/");
 
-        driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
+        WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
+        submitButton.click();
 
     }
 
@@ -24,9 +26,11 @@ public class PizzatempoTest {
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by/");
 
-        driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath)).sendKeys("invalidemail");
+        WebElement emailInputField = driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath));
+        emailInputField.sendKeys("invalidemail");
 
-        driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
+        WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
+        submitButton.click();
     }
 
     @Test(description = "вход с пустым E-mail и любым паролем")
@@ -36,8 +40,11 @@ public class PizzatempoTest {
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by/");
 
-        driver.findElement(By.xpath(pizzatempoPage.passwordInputFieldXpath)).sendKeys("randompassword");
-        driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
+        WebElement passwordInputField = driver.findElement(By.xpath(pizzatempoPage.passwordInputFieldXpath));
+        passwordInputField.sendKeys("randompassword");
+
+        WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
+        submitButton.click();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и пустым паролем")
@@ -47,8 +54,11 @@ public class PizzatempoTest {
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by/");
 
-        driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath)).sendKeys("validemail@mail.com");
-        driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
+        WebElement emailInputField = driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath));
+        emailInputField.sendKeys("validemail@mail.com");
+
+        WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
+        submitButton.click();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
@@ -58,9 +68,14 @@ public class PizzatempoTest {
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by/");
 
-        driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath)).sendKeys("validemail@mail.com");
-        driver.findElement(By.xpath(pizzatempoPage.passwordInputFieldXpath)).sendKeys("randompassword");
-        driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath)).click();
+        WebElement emailInputField = driver.findElement(By.xpath(pizzatempoPage.emailInputFieldXpath));
+        emailInputField.sendKeys("validemail@mail.com");
+
+        WebElement passwordInputField = driver.findElement(By.xpath(pizzatempoPage.passwordInputFieldXpath));
+        passwordInputField.sendKeys("randompassword");
+
+        WebElement submitButton = driver.findElement(By.xpath(pizzatempoPage.submitButtonXpath));
+        submitButton.click();
 
     }
 }

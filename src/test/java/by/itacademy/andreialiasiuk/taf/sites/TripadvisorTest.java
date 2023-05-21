@@ -1,8 +1,10 @@
 package by.itacademy.andreialiasiuk.taf.sites;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+
 import java.util.concurrent.TimeUnit;
 
 public class TripadvisorTest {
@@ -14,17 +16,14 @@ public class TripadvisorTest {
         driver.get("https://www.tripadvisor.com/");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath)).click();
+        WebElement signInButton = driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath));
+        signInButton.click();
 
-        driver.findElement(By.xpath(tripadvisorPage.continueWithEmailXpath)).click();
+        WebElement continueWithEmailButton = driver.findElement(By.xpath(tripadvisorPage.continueWithEmailXpath));
+        continueWithEmailButton.click();
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath)).click();
-       /* WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='regSignIn']/div[4]/button[1]")));
-        element.click();*/
-        driver.quit();
+        WebElement submitButton = driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
+        submitButton.click();
     }
 
     @Test(description = "вход с некорректным Email (например, email)")
@@ -34,15 +33,17 @@ public class TripadvisorTest {
         driver.manage().window().maximize();
         driver.get("https://www.tripadvisor.com/");
 
-        driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath)).click();
+        WebElement signInButton = driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath));
+        signInButton.click();
 
-        driver.findElement(By.xpath(tripadvisorPage.continueWithEmailXpath)).click();
+        WebElement continueWithEmailButton = driver.findElement(By.xpath(tripadvisorPage.continueWithEmailXpath));
+        continueWithEmailButton.click();
 
-        driver.findElement(By.xpath(tripadvisorPage.emailInputFieldXpath)).sendKeys("invalidemail");
+        WebElement emailInputField = driver.findElement(By.xpath(tripadvisorPage.emailInputFieldXpath));
+        emailInputField.sendKeys("invalidemail");
 
-        driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
-
-        driver.quit();
+        WebElement submitButton = driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
+        submitButton.click();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и пустым Password")
@@ -52,35 +53,40 @@ public class TripadvisorTest {
         driver.manage().window().maximize();
         driver.get("https://www.tripadvisor.com/");
 
-        driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath)).click();
+        WebElement signInButton = driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath));
+        signInButton.click();
 
-        driver.findElement(By.xpath(tripadvisorPage.continueWithEmailXpath)).click();
+        WebElement continueWithEmailButton = driver.findElement(By.xpath(tripadvisorPage.continueWithEmailXpath));
+        continueWithEmailButton.click();
 
-        driver.findElement(By.xpath(tripadvisorPage.emailInputFieldXpath)).sendKeys("validemail@mail.com");
+        WebElement emailInputField = driver.findElement(By.xpath(tripadvisorPage.emailInputFieldXpath));
+        emailInputField.sendKeys("validemail@mail.com");
 
-        driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
-
-        driver.quit();
+        WebElement submitButton = driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
+        submitButton.click();
 
     }
+
     @Test(description = "вход с корректным Email и любым паролем")
-    public void testLoginWithValidEmailRandomPassword(){
+    public void testLoginWithValidEmailRandomPassword() {
         TripadvisorPage tripadvisorPage = new TripadvisorPage();
         ChromeDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.tripadvisor.com/");
 
-        driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath)).click();
+        WebElement signInButton = driver.findElement(By.xpath(tripadvisorPage.signInButtonXpath));
+        signInButton.click();
 
-        driver.findElement(By.xpath(tripadvisorPage.continueWithEmailXpath)).click();
+        WebElement continueWithEmailButton = driver.findElement(By.xpath(tripadvisorPage.continueWithEmailXpath));
+        continueWithEmailButton.click();
 
-        driver.findElement(By.xpath(tripadvisorPage.emailInputFieldXpath)).sendKeys("validemail@mail.com");
+        WebElement emailInputField = driver.findElement(By.xpath(tripadvisorPage.emailInputFieldXpath));
+        emailInputField.sendKeys("validemail@mail.com");
 
-        driver.findElement(By.xpath(tripadvisorPage.passwordInputFieldXpath)).sendKeys("randompassword");
+        WebElement passwordInputField = driver.findElement(By.xpath(tripadvisorPage.passwordInputFieldXpath));
+        passwordInputField.sendKeys("randompassword");
 
-        driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath)).click();
-
-        driver.quit();
-
+        WebElement submitButton = driver.findElement(By.xpath(tripadvisorPage.submitButtonXpath));
+        submitButton.click();
     }
 }

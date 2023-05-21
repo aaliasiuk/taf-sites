@@ -16,10 +16,12 @@ public class BookingTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        WebElement closePopUpIcon = driver.findElement(By.xpath("//div/button[@aria-label='Dismiss sign-in info.']"));
+        WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
         closePopUpIcon.click();
+
         WebElement buttonSignIn = driver.findElement(By.xpath(bookingPage.registerButtonXpath));
         buttonSignIn.click();
+
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
@@ -33,11 +35,12 @@ public class BookingTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        WebElement closePopUpIcon = driver.findElement(By.xpath("//div/button[@aria-label='Dismiss sign-in info.']"));
+        WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
         closePopUpIcon.click();
 
         WebElement emailInputField = driver.findElement(By.xpath(bookingPage.emailInputFieldXpath));
         emailInputField.sendKeys("invalid email");
+
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
@@ -52,12 +55,15 @@ public class BookingTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        WebElement closePopUpIcon = driver.findElement(By.xpath("//div/button[@aria-label='Dismiss sign-in info.']"));
+        WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
         closePopUpIcon.click();
+
         WebElement buttonSignIn = driver.findElement(By.xpath(bookingPage.registerButtonXpath));
         buttonSignIn.click();
+
         WebElement emailInputField = driver.findElement(By.xpath(bookingPage.emailInputFieldXpath));
         emailInputField.sendKeys("valid_email@mail.com");
+
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
     }
@@ -70,17 +76,19 @@ public class BookingTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        WebElement closePopUpIcon = driver.findElement(By.xpath("//div/button[@aria-label='Dismiss sign-in info.']"));
+        WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
         closePopUpIcon.click();
 
         WebElement buttonSignIn = driver.findElement(By.xpath(bookingPage.registerButtonXpath));
         buttonSignIn.click();
+
         WebElement emailInputField = driver.findElement(By.xpath(bookingPage.emailInputFieldXpath));
         emailInputField.sendKeys("valid_email@mail.com");
+
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
-        WebElement submitButton = driver.findElement(By.xpath("//*[@id='root']//form/div[2]/button"));
+        WebElement submitButton = driver.findElement(By.xpath(bookingPage.submitButtonXpath));
         submitButton.click();
     }
 
@@ -92,13 +100,15 @@ public class BookingTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        WebElement closePopUpIcon = driver.findElement(By.xpath("//div/button[@aria-label='Dismiss sign-in info.']"));
+        WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
         closePopUpIcon.click();
 
         WebElement buttonSignIn = driver.findElement(By.xpath(bookingPage.registerButtonXpath));
         buttonSignIn.click();
+
         WebElement emailInputField = driver.findElement(By.xpath(bookingPage.emailInputFieldXpath));
         emailInputField.sendKeys("valid_email@mail.com");
+
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
