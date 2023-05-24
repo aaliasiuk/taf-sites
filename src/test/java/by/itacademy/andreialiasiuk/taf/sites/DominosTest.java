@@ -3,51 +3,50 @@ package by.itacademy.andreialiasiuk.taf.sites;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class DominosTest {
+    ChromeDriver driver;
+    DominosPage dominosPage;
+
+    @BeforeTest
+    public void warmUp() {
+
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+        dominosPage = new DominosPage(driver);
+        driver.get(dominosPage.baseURL);
+
+    }
 
     @Test(description = "вход с некорректным Email (например, email) и любым паролем")
     public void loginWithInvalidEmailRandomPassword() {
-        DominosPage dominosPage = new DominosPage();
-        ChromeDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get(dominosPage.baseURL);
 
-        WebElement loginButtonHomePage = driver.findElement(By.xpath(dominosPage.loginButtonHomePageXpath));
-        loginButtonHomePage.click();
+        dominosPage.closeModal();
+        dominosPage.loginHomePage();
+        dominosPage.sendKeysEmailField("invalidemail");
+        dominosPage.sendKeysPasswordField("randompassword");
+        dominosPage.clickSubmitButton();
 
-        WebElement emailInputField = driver.findElement(By.xpath(dominosPage.emailInputFieldXpath));
-        emailInputField.sendKeys("invalidemail");
-
-        WebElement passwordInputField = driver.findElement(By.xpath(dominosPage.passwordInputFieldXpath));
-        passwordInputField.sendKeys("randompassword");
-
-        WebElement submitButton = driver.findElement(By.xpath(dominosPage.submitButtonXpath));
-        submitButton.click();
-
-        driver.quit();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
     public void testLoginValidEmailRandomPassword() {
-        DominosPage dominosPage = new DominosPage();
-        ChromeDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get(dominosPage.baseURL);
 
-        WebElement loginButtonHomePage = driver.findElement(By.xpath(dominosPage.loginButtonHomePageXpath));
-        loginButtonHomePage.click();
+        dominosPage.closeModal();
+        dominosPage.loginHomePage();
+        dominosPage.sendKeysEmailField("valid_email@mail.com");
+        dominosPage.sendKeysPasswordField("randompassword");
+        dominosPage.clickSubmitButton();
 
-        WebElement emailInputField = driver.findElement(By.xpath(dominosPage.emailInputFieldXpath));
-        emailInputField.sendKeys("valid_email@mail.com");
 
-        WebElement passwordInputField = driver.findElement(By.xpath(dominosPage.passwordInputFieldXpath));
-        passwordInputField.sendKeys("randompassword");
+    }
 
-        WebElement submitButton = driver.findElement(By.xpath(dominosPage.submitButtonXpath));
-        submitButton.click();
-
+    @AfterTest
+    public void tearDown() {
         driver.quit();
     }
 }
