@@ -14,9 +14,11 @@ public class PizzatempoPage {
 
 
     //methods
-    public PizzatempoPage(ChromeDriver newDriver){
+    public PizzatempoPage(ChromeDriver newDriver) {
+
         driver = newDriver;
     }
+
     public void clickSubmitButton() {
         WebElement submitButton = driver.findElement(By.xpath(submitButtonXpath));
         submitButton.click();
@@ -27,7 +29,7 @@ public class PizzatempoPage {
         emailInputField.sendKeys(str);
     }
 
-    public void sendKeysPasswordInputField(String str){
+    public void sendKeysPasswordInputField(String str) {
         WebElement passwordInputField = driver.findElement(By.xpath(passwordInputFieldXpath));
         passwordInputField.sendKeys(str);
     }

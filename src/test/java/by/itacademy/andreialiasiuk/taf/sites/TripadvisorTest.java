@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class TripadvisorTest {
     TripadvisorPage tripadvisorPage;
     ChromeDriver driver;
+    Utils utils;
 
 
     @BeforeTest
@@ -21,6 +22,7 @@ public class TripadvisorTest {
         driver.manage().window().maximize();
 
         tripadvisorPage = new TripadvisorPage(driver);
+        utils = new Utils(driver);
         tripadvisorPage.getUrl();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
@@ -47,7 +49,7 @@ public class TripadvisorTest {
     public void testLoginWithValidEmailEmptyPassword() {
         tripadvisorPage.clickSignInButton();
         tripadvisorPage.clickContinueWithEmail();
-        tripadvisorPage.sendKeysEmailInputField("validemail@mail.com");
+        tripadvisorPage.sendKeysEmailInputField(utils.generateEmail());
         tripadvisorPage.clickSubmitButton();
 
     }
@@ -56,8 +58,8 @@ public class TripadvisorTest {
     public void testLoginWithValidEmailRandomPassword() {
         tripadvisorPage.clickSignInButton();
         tripadvisorPage.clickContinueWithEmail();
-        tripadvisorPage.sendKeysEmailInputField("validemail@mail.com");
-        tripadvisorPage.sendKeysPasswordField("randompassword");
+        tripadvisorPage.sendKeysEmailInputField(utils.generateEmail());
+        tripadvisorPage.sendKeysPasswordField(utils.generatePassword());
         tripadvisorPage.clickSubmitButton();
     }
 

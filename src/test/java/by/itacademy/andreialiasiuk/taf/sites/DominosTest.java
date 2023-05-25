@@ -7,9 +7,12 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class DominosTest {
     ChromeDriver driver;
     DominosPage dominosPage;
+    Utils utils;
 
     @BeforeTest
     public void warmUp() {
@@ -18,17 +21,19 @@ public class DominosTest {
         driver.manage().window().maximize();
 
         dominosPage = new DominosPage(driver);
+        utils = new Utils(driver);
         driver.get(dominosPage.baseURL);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
 
     @Test(description = "вход с некорректным Email (например, email) и любым паролем")
     public void loginWithInvalidEmailRandomPassword() {
 
-        dominosPage.closeModal();
+        //dominosPage.closeModal();
         dominosPage.loginHomePage();
         dominosPage.sendKeysEmailField("invalidemail");
-        dominosPage.sendKeysPasswordField("randompassword");
+        dominosPage.sendKeysPasswordField(utils.generatePassword());
         dominosPage.clickSubmitButton();
 
     }
@@ -36,10 +41,10 @@ public class DominosTest {
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
     public void testLoginValidEmailRandomPassword() {
 
-        dominosPage.closeModal();
+        //dominosPage.closeModal();
         dominosPage.loginHomePage();
-        dominosPage.sendKeysEmailField("valid_email@mail.com");
-        dominosPage.sendKeysPasswordField("randompassword");
+        dominosPage.sendKeysEmailField(utils.generateEmail());
+        dominosPage.sendKeysPasswordField(utils.generatePassword());
         dominosPage.clickSubmitButton();
 
 

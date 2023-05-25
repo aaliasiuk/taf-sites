@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 public class PizzatempoTest {
     ChromeDriver driver;
     PizzatempoPage pizzatempoPage;
+    Utils utils;
+
 
     @BeforeMethod
     public void warmUp() {
@@ -20,6 +22,7 @@ public class PizzatempoTest {
         driver.manage().window().maximize();
 
         pizzatempoPage = new PizzatempoPage(driver);
+        utils = new Utils(driver);
         driver.get(pizzatempoPage.baseURL);
     }
 
@@ -40,7 +43,7 @@ public class PizzatempoTest {
     @Test(description = "вход с пустым E-mail и любым паролем")
     public void testLoginBlankEmailRandomPassword() {
 
-        pizzatempoPage.sendKeysPasswordInputField("randompassword");
+        pizzatempoPage.sendKeysPasswordInputField(utils.generateEmail());
 
         pizzatempoPage.clickSubmitButton();
 
@@ -49,7 +52,7 @@ public class PizzatempoTest {
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и пустым паролем")
     public void testLoginValidEmailBlankPassword() {
 
-        pizzatempoPage.sendKeysEmailInputField("validemail@mail.com");
+        pizzatempoPage.sendKeysEmailInputField(utils.generateEmail());
 
         pizzatempoPage.clickSubmitButton();
 
@@ -57,16 +60,13 @@ public class PizzatempoTest {
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
     public void testLoginValidEmailRandomPassword() {
-        pizzatempoPage.sendKeysEmailInputField("validemail@mail.com");
+        pizzatempoPage.sendKeysEmailInputField(utils.generateEmail());
 
-        pizzatempoPage.sendKeysPasswordInputField("randompassword");
+        pizzatempoPage.sendKeysPasswordInputField(utils.generatePassword());
 
         pizzatempoPage.clickSubmitButton();
 
     }
 
-    @AfterTest
-    public void tearDown() {
-        driver.quit();
-    }
+
 }
