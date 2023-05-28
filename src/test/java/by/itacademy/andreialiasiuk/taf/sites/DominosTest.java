@@ -13,6 +13,7 @@ public class DominosTest {
     ChromeDriver driver;
     DominosPage dominosPage;
     Utils utils;
+    DominosStep dominosStep;
 
     @BeforeTest
     public void warmUp() {
@@ -22,6 +23,7 @@ public class DominosTest {
 
         dominosPage = new DominosPage(driver);
         utils = new Utils(driver);
+        dominosStep = new DominosStep(driver);
         driver.get(dominosPage.baseURL);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -29,24 +31,13 @@ public class DominosTest {
 
     @Test(description = "вход с некорректным Email (например, email) и любым паролем")
     public void loginWithInvalidEmailRandomPassword() {
-
-        //dominosPage.closeModal();
-        dominosPage.loginHomePage();
-        dominosPage.sendKeysEmailField("invalidemail");
-        dominosPage.sendKeysPasswordField(utils.generatePassword());
-        dominosPage.clickSubmitButton();
+        dominosStep.keyLoginCredsAndSubmit(utils.generateInvalidEmail(), utils.generatePassword());
 
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
     public void testLoginValidEmailRandomPassword() {
-
-        //dominosPage.closeModal();
-        dominosPage.loginHomePage();
-        dominosPage.sendKeysEmailField(utils.generateEmail());
-        dominosPage.sendKeysPasswordField(utils.generatePassword());
-        dominosPage.clickSubmitButton();
-
+        dominosStep.keyLoginCredsAndSubmit(utils.generateEmail(), utils.generatePassword());
 
     }
 

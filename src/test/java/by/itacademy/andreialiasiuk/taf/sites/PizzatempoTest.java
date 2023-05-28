@@ -13,60 +13,54 @@ public class PizzatempoTest {
     ChromeDriver driver;
     PizzatempoPage pizzatempoPage;
     Utils utils;
+    PizzatempoStep pizzatempoStep;
 
 
-    @BeforeMethod
+    @BeforeTest
     public void warmUp() {
-
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-
         pizzatempoPage = new PizzatempoPage(driver);
         utils = new Utils(driver);
+        pizzatempoStep = new PizzatempoStep(driver);
         driver.get(pizzatempoPage.baseURL);
     }
 
     @Test(description = "вход с пустым E-mail и пустым Пароль")
     public void testLoginBlankEmailBlankPassword() {
 
-        pizzatempoPage.clickSubmitButton();
+        pizzatempoStep.keyLoginCredsAndSubmit("", "");
     }
 
     @Test(description = "вход с некорректным E-mail (например, email)")
     public void testLoginInvalidEmail() {
 
-        pizzatempoPage.sendKeysEmailInputField("invalidemail");
-
-        pizzatempoPage.clickSubmitButton();
+        pizzatempoStep.keyLoginCredsAndSubmit("invalidemail", "");
     }
 
     @Test(description = "вход с пустым E-mail и любым паролем")
     public void testLoginBlankEmailRandomPassword() {
-
-        pizzatempoPage.sendKeysPasswordInputField(utils.generateEmail());
-
-        pizzatempoPage.clickSubmitButton();
+        pizzatempoStep.keyLoginCredsAndSubmit("", utils.generatePassword());
 
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и пустым паролем")
     public void testLoginValidEmailBlankPassword() {
 
-        pizzatempoPage.sendKeysEmailInputField(utils.generateEmail());
-
-        pizzatempoPage.clickSubmitButton();
+        pizzatempoStep.keyLoginCredsAndSubmit(utils.generateEmail(), "");
 
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com) и любым паролем")
     public void testLoginValidEmailRandomPassword() {
-        pizzatempoPage.sendKeysEmailInputField(utils.generateEmail());
 
-        pizzatempoPage.sendKeysPasswordInputField(utils.generatePassword());
-
-        pizzatempoPage.clickSubmitButton();
+        pizzatempoStep.keyLoginCredsAndSubmit(utils.generateEmail(), utils.generatePassword());
 
     }
 
+    @AfterTest
+    public void tearDown() {
+        driver.quit();
+    }
 
 }

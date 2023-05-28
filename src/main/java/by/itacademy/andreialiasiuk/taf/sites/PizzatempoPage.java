@@ -1,15 +1,14 @@
 package by.itacademy.andreialiasiuk.taf.sites;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class PizzatempoPage {
     private ChromeDriver driver;
-    private String emailInputFieldXpath = "//input[@name='astroauth_login']";
-    private String passwordInputFieldXpath = "//input[@name='astroauth_pass']";
-    private String submitButtonXpath = "//input[@name='astroauth_submit']";
+    private String emailInputFieldName = "astroauth_login";
+    private String passwordInputFieldName = "astroauth_pass";
+    private String submitButtonName = "astroauth_submit";
     String baseURL = "https://www.pizzatempo.by/";
 
 
@@ -20,17 +19,17 @@ public class PizzatempoPage {
     }
 
     public void clickSubmitButton() {
-        WebElement submitButton = driver.findElement(By.xpath(submitButtonXpath));
+        WebElement submitButton = driver.findElement(By.name(submitButtonName));
         submitButton.click();
     }
 
     public void sendKeysEmailInputField(String str) {
-        WebElement emailInputField = driver.findElement(By.xpath(emailInputFieldXpath));
+        WebElement emailInputField = driver.findElement(By.name(emailInputFieldName));
         emailInputField.sendKeys(str);
     }
 
     public void sendKeysPasswordInputField(String str) {
-        WebElement passwordInputField = driver.findElement(By.xpath(passwordInputFieldXpath));
+        WebElement passwordInputField = driver.findElement(By.name(passwordInputFieldName));
         passwordInputField.sendKeys(str);
     }
 }
