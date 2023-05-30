@@ -12,18 +12,16 @@ public class Utils {
 
     public String generateEmail() {
         Faker faker = new Faker();
-        String email = faker.internet().emailAddress();
-        return email;
+        return faker.internet().emailAddress();
     }
-    public String generateInvalidEmail(){
+
+    public String generateInvalidEmail() {
         Faker faker = new Faker();
-        String invalidEmail = faker.internet().domainName();
-        return invalidEmail;
+        return faker.internet().domainName();
     }
 
     public String generatePassword() {
         Faker faker = new Faker();
-        String password = faker.internet().password();
-        return password;
+        return faker.internet().password();
     }
 }
