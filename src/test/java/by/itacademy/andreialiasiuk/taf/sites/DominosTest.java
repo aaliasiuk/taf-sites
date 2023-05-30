@@ -3,9 +3,7 @@ package by.itacademy.andreialiasiuk.taf.sites;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +13,7 @@ public class DominosTest {
     Utils utils;
     DominosStep dominosStep;
 
-    @BeforeTest
+    @BeforeMethod
     public void warmUp() {
 
         driver = new ChromeDriver();
@@ -41,7 +39,7 @@ public class DominosTest {
 
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         driver.quit();
     }

@@ -3,10 +3,7 @@ package by.itacademy.andreialiasiuk.taf.sites;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 
 public class PizzatempoTest {
@@ -16,7 +13,7 @@ public class PizzatempoTest {
     PizzatempoStep pizzatempoStep;
 
 
-    @BeforeTest
+    @BeforeMethod
     public void warmUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -58,7 +55,7 @@ public class PizzatempoTest {
 
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         driver.quit();
     }
