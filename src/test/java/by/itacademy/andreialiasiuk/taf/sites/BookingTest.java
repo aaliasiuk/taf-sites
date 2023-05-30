@@ -3,19 +3,31 @@ package by.itacademy.andreialiasiuk.taf.sites;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
+
 public class BookingTest {
-    @Test(description = "вход с пустым Email")
-    public void testLoginEmptyEmail() {
-        BookingPage bookingPage = new BookingPage();
-        ChromeDriver driver = new ChromeDriver();
+    ChromeDriver driver;
+    BookingPage bookingPage;
+    Utils utils;
+    BookingStep bookingStep;
+
+    @BeforeMethod
+    public void warmUp() {
+        driver = new ChromeDriver();
+        bookingPage = new BookingPage(driver);
+        utils = new Utils(driver);
+        bookingStep = new BookingStep(driver);
         driver.get(bookingPage.baseURL);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+    }
+
+    @Test(description = "вход с пустым Email")
+    public void testLoginEmptyEmail() {
 
         WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
         closePopUpIcon.click();
@@ -26,17 +38,11 @@ public class BookingTest {
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
-        driver.quit();
 
     }
 
     @Test(description = "вход с некорректным Email (например, email)")
     public void testLoginInvalidEmail() {
-        BookingPage bookingPage = new BookingPage();
-        ChromeDriver driver = new ChromeDriver();
-        driver.get(bookingPage.baseURL);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
         closePopUpIcon.click();
@@ -47,17 +53,10 @@ public class BookingTest {
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
-        driver.quit();
     }
 
     @Test(description = "вход с корректной записью Email (например, test@mail.com)")
     public void testLoginValidEmail() {
-        BookingPage bookingPage = new BookingPage();
-        ChromeDriver driver = new ChromeDriver();
-        //FirefoxDriver driver = new FirefoxDriver();
-        driver.get(bookingPage.baseURL);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
         closePopUpIcon.click();
@@ -71,62 +70,22 @@ public class BookingTest {
         WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
         buttonContinueWithEmail.click();
 
-        driver.quit();
     }
 
     @Test(description = "вход с корректным Email и пустым паролем")
     public void testLoginValidEmailEmptyPassword() {
-        BookingPage bookingPage = new BookingPage();
-        ChromeDriver driver = new ChromeDriver();
-        driver.get(bookingPage.baseURL);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        bookingStep.keyLoginCredsAndSubmit("valid_email@mail.com","");
 
-        WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
-        closePopUpIcon.click();
-
-        WebElement buttonSignIn = driver.findElement(By.xpath(bookingPage.registerButtonXpath));
-        buttonSignIn.click();
-
-        WebElement emailInputField = driver.findElement(By.xpath(bookingPage.emailInputFieldXpath));
-        emailInputField.sendKeys("valid_email@mail.com");
-
-        WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
-        buttonContinueWithEmail.click();
-
-        WebElement submitButton = driver.findElement(By.xpath(bookingPage.submitButtonXpath));
-        submitButton.click();
-
-        driver.quit();
     }
 
     @Test(description = "вход с корректным Email и любым паролем")
     public void testLoginValidEmailRandomPassword() {
-        BookingPage bookingPage = new BookingPage();
-        ChromeDriver driver = new ChromeDriver();
-        driver.get(bookingPage.baseURL);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        bookingStep.keyLoginCredsAndSubmit("valid_email@mail.com", utils.generatePassword());
 
-        WebElement closePopUpIcon = driver.findElement(By.xpath(bookingPage.closePopUpIconXpath));
-        closePopUpIcon.click();
+    }
 
-        WebElement buttonSignIn = driver.findElement(By.xpath(bookingPage.registerButtonXpath));
-        buttonSignIn.click();
-
-        WebElement emailInputField = driver.findElement(By.xpath(bookingPage.emailInputFieldXpath));
-        emailInputField.sendKeys("valid_email@mail.com");
-
-        WebElement buttonContinueWithEmail = driver.findElement(By.xpath(bookingPage.continueWithEmailButtonXpath));
-        buttonContinueWithEmail.click();
-
-        WebElement passwordInputField = driver.findElement(By.xpath(bookingPage.passwordInputFieldXpath));
-        passwordInputField.sendKeys("anypassword");
-
-        WebElement submitButton = driver.findElement(By.xpath((bookingPage.submitButtonXpath)));
-        submitButton.click();
-
+    @AfterMethod
+    public void tearDowns() {
         driver.quit();
-
     }
 }
