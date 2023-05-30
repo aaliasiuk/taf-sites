@@ -6,11 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DominosPage {
     private ChromeDriver driver;
-    String closeModalIconXpath = "//body/div[4]/div[2]/button";
-    String loginButtonHomePageXpath = "//button[@aria-controls='login-modal']";
-    String emailInputFieldXpath = "//*[@id='Email']";
-    String passwordInputFieldXpath = "//*[@id='Password']";
-    String submitButtonXpath = "//*[@id='login-modal']//button[@data-quid='sign-in-button']";
+    private String closeModalIconXpath = "//body/div[4]/div[2]/button";
+    private String loginButtonHomePageXpath = "//button[@aria-controls='login-modal']";
+    private String emailInputFieldXpath = "//*[@id='Email']";
+    private String passwordInputFieldXpath = "//*[@id='Password']";
+    private String submitButtonXpath = "//*[@id='login-modal']//button[@data-quid='sign-in-button']";
     String baseURL = "https://www.dominos.com/";
 
     public DominosPage(ChromeDriver newDriver) {

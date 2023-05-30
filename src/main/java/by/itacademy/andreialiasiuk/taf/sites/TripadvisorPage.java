@@ -9,12 +9,12 @@ import java.util.zip.Checksum;
 
 public class TripadvisorPage {
     ChromeDriver driver;
-    String signInButtonXpath = "//span[contains(., 'Sign in')] | //*[@id='lithium-root']/header/div/nav/div/div[2]/a[4]/span";
-    String iFrameXpath = "//iframe[@title='regcontroller']";
-    String continueWithEmailXpath = "//span[contains(., 'Continue with email')]";
-    String emailInputFieldXpath = "//*[@id='regSignIn.email']";
-    String passwordInputFieldXpath = "//*[@id='regSignIn.password']";
-    String submitButtonXpath = "//*[@id='regSignIn']/div[4]/button[1]";
+    private String signInButtonXpath = "//span[contains(., 'Sign in')] | //*[@id='lithium-root']/header/div/nav/div/div[2]/a[4]/span";
+    private String iFrameXpath = "//iframe[@title='regcontroller']";
+    private String continueWithEmailXpath = "//span[contains(., 'Continue with email')]";
+    private String emailInputFieldXpath = "//*[@id='regSignIn.email']";
+    private String passwordInputFieldXpath = "//*[@id='regSignIn.password']";
+    private String submitButtonXpath = "//*[@id='regSignIn']/div[4]/button[1]";
     String baseURL = "https://www.tripadvisor.com/";
 
     public TripadvisorPage(ChromeDriver newDriver) {
