@@ -11,7 +11,7 @@ public class PizzatempoPage {
     private String passwordInputFieldName = "astroauth_pass";
     private String submitButtonName = "astroauth_submit";
     String baseURL = "https://www.pizzatempo.by/";
-    String errorPopupContentXpath = "//div[@class='popupContent']";
+    private String errorPopupContentXpath = "//div[@class='popupContent']";
     public String loginErrorText = "Неверно указано имя пользователя или пароль.\nOk";
     public String alertText = "Заполните форму";
 
@@ -43,8 +43,8 @@ public class PizzatempoPage {
 
     public String getPopupAlertMessage() {
         Alert alert = driver.switchTo().alert();
-        String alertText = alert.getText();
-        return alertText;
+        return alert.getText();
+
     }
 
 }
