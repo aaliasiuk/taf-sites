@@ -1,12 +1,8 @@
 package by.itacademy.andreialiasiuk.taf.sites;
 
-import org.asynchttpclient.util.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import org.testng.asserts.Assertion;
 
 
 public class PizzatempoTest {
@@ -30,20 +26,20 @@ public class PizzatempoTest {
     public void testLoginBlankEmailBlankPassword() {
 
         pizzatempoStep.keyLoginCredsAndSubmit("", "");
-        Assert.assertEquals(pizzatempoPage.getPopupAlertMessage(),pizzatempoPage.alertText);
+        Assert.assertEquals(pizzatempoPage.getPopupAlertMessage(), pizzatempoPage.alertText);
     }
 
     @Test(description = "вход с некорректным E-mail (например, email)")
     public void testLoginInvalidEmail() {
 
         pizzatempoStep.keyLoginCredsAndSubmit(utils.generateInvalidEmail(), "");
-        Assert.assertEquals(pizzatempoPage.getPopupAlertMessage(),pizzatempoPage.alertText);
+        Assert.assertEquals(pizzatempoPage.getPopupAlertMessage(), pizzatempoPage.alertText);
     }
 
     @Test(description = "вход с пустым E-mail и любым паролем")
     public void testLoginBlankEmailRandomPassword() {
         pizzatempoStep.keyLoginCredsAndSubmit("", utils.generatePassword());
-        Assert.assertEquals(pizzatempoPage.getPopupAlertMessage(),pizzatempoPage.alertText);
+        Assert.assertEquals(pizzatempoPage.getPopupAlertMessage(), pizzatempoPage.alertText);
 
     }
 
@@ -51,7 +47,7 @@ public class PizzatempoTest {
     public void testLoginValidEmailBlankPassword() {
 
         pizzatempoStep.keyLoginCredsAndSubmit(utils.generateEmail(), "");
-        Assert.assertEquals(pizzatempoPage.getPopupAlertMessage(),pizzatempoPage.alertText);
+        Assert.assertEquals(pizzatempoPage.getPopupAlertMessage(), pizzatempoPage.alertText);
 
     }
 
@@ -59,7 +55,7 @@ public class PizzatempoTest {
     public void testLoginValidEmailRandomPassword() {
 
         pizzatempoStep.keyLoginCredsAndSubmit(utils.generateEmail(), utils.generatePassword());
-        Assert.assertEquals(pizzatempoPage.getPopupErrorMessage(),pizzatempoPage.loginErrorText);
+        Assert.assertEquals(pizzatempoPage.getPopupErrorMessage(), pizzatempoPage.loginErrorText);
 
     }
 

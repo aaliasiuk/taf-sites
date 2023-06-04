@@ -16,8 +16,6 @@ public class PizzatempoPage {
     public String alertText = "Заполните форму";
 
 
-
-    //methods
     public PizzatempoPage(ChromeDriver newDriver) {
 
         driver = newDriver;
@@ -37,11 +35,13 @@ public class PizzatempoPage {
         WebElement passwordInputField = driver.findElement(By.name(passwordInputFieldName));
         passwordInputField.sendKeys(str);
     }
-    public String getPopupErrorMessage(){
+
+    public String getPopupErrorMessage() {
         WebElement errorPopup = driver.findElement(By.xpath(errorPopupContentXpath));
         return errorPopup.getText();
     }
-    public String getPopupAlertMessage(){
+
+    public String getPopupAlertMessage() {
         Alert alert = driver.switchTo().alert();
         String alertText = alert.getText();
         return alertText;
