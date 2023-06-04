@@ -13,6 +13,11 @@ public class DominosPage {
     private String submitButtonXpath = "//*[@id='login-modal']//button[@data-quid='sign-in-button']";
     String baseURL = "https://www.dominos.com/";
 
+    private String errorEmailMessageId = "error-Email";
+    public String errorEmailMessageText = "Please enter a valid email address.";
+    private String loginModalAttentionXpath = "//*[@id='login-modal']/div/p";
+    public String loginModalAttentionText = "We could not locate a Pizza Profile with that e-mail and password combination. Please make sure you are using the e-mail address associated with your Domino's Pizza Profile.";
+
     public DominosPage(ChromeDriver newDriver) {
         driver = newDriver;
     }
@@ -37,9 +42,19 @@ public class DominosPage {
         passwordInputField.sendKeys(str);
     }
 
-    public void clickSubmitButton(){
+    public void clickSubmitButton() {
         WebElement submitButton = driver.findElement(By.xpath(submitButtonXpath));
         submitButton.click();
+    }
+
+    public String getErrorEmailMessage() {
+        WebElement errorEmailMessage = driver.findElement(By.id(errorEmailMessageId));
+        return errorEmailMessage.getText();
+    }
+
+    public String getLoginModalAttentionText() {
+        WebElement loginModalAttention = driver.findElement(By.xpath(loginModalAttentionXpath));
+        return loginModalAttention.getText();
     }
 
 }
