@@ -5,6 +5,9 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.lang.Thread;
+
+import java.util.concurrent.TimeUnit;
 import java.util.zip.Checksum;
 
 public class TripadvisorPage {
@@ -16,6 +19,13 @@ public class TripadvisorPage {
     private String passwordInputFieldXpath = "//*[@id='regSignIn.password']";
     private String submitButtonXpath = "//*[@id='regSignIn']/div[4]/button[1]";
     String baseURL = "https://www.tripadvisor.com/";
+
+    private String regValidationErrorXpath = "//span[@class='ui_overlay ui_tooltip arrow_bottom regValidationError']";
+    public String errorMessageEmailFieldText = "E-mail address is required";
+    public String errorMessageInvalidEmailText = "E-mail address is either invalid or starts with a generic alias to which we cannot send.";
+    public String errorMessagePassowrdValidationText = "Your password must be at least 10 characters. Please try again.";
+    private String errorInvalidCredsXpath = "//*[@id='regErrors']";
+    public String errorMessageInvalidCredsText = "Either your email or password was incorrect. Please try again or click the \"Forgot password?\" link below.";
 
     public TripadvisorPage(ChromeDriver newDriver) {
         driver = newDriver;
@@ -44,8 +54,7 @@ public class TripadvisorPage {
             } catch (NoSuchElementException e) {
                 System.out.println("no iframe");
             }
-        }
-        else {
+        } else {
             WebElement clickContinueWithEmailButton = driver.findElement(By.xpath(continueWithEmailXpath));
             clickContinueWithEmailButton.click();
         }
@@ -60,7 +69,6 @@ public class TripadvisorPage {
     public void sendKeysPasswordField(String str) {
         WebElement passwordInputField = driver.findElement(By.xpath(passwordInputFieldXpath));
         passwordInputField.sendKeys(str);
-
     }
 
     public void clickSubmitButton() {
@@ -68,4 +76,13 @@ public class TripadvisorPage {
         submitButton.click();
     }
 
+    public String getRegValidationErrorText() {
+        WebElement errorMessageTooltip = driver.findElement(By.xpath(regValidationErrorXpath));
+        return errorMessageTooltip.getText();
+    }
+
+    public String getErrorMessageInvalidCredsText() {
+        WebElement errorMessageInvalidCreds = driver.findElement(By.xpath(errorInvalidCredsXpath));
+        return errorMessageInvalidCreds.getText();
+    }
 }
