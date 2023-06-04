@@ -5,10 +5,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.lang.Thread;
-
-import java.util.concurrent.TimeUnit;
-import java.util.zip.Checksum;
 
 public class TripadvisorPage {
     ChromeDriver driver;
