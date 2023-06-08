@@ -1,4 +1,4 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,7 @@ public class DominosPage {
     private String emailInputFieldXpath = "//*[@id='Email']";
     private String passwordInputFieldXpath = "//*[@id='Password']";
     private String submitButtonXpath = "//*[@id='login-modal']//button[@data-quid='sign-in-button']";
-    String baseURL = "https://www.dominos.com/";
+    public String baseURL = "https://www.dominos.com/";
 
     private String errorEmailMessageId = "error-Email";
     public String errorEmailMessageText = "Please enter a valid email address.";

@@ -1,4 +1,4 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -6,13 +6,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BookingPage {
     ChromeDriver driver;
-    String closePopUpIconXpath = "//div/button[@aria-label='Dismiss sign-in info.']";
-    String registerButtonXpath = "//a[contains(.,'Sign in or register')]";
-    String emailInputFieldXpath = "//div/input[@type='email']";
-    String continueWithEmailButtonXpath = "//div/button[@type='submit']";
-    String passwordInputFieldXpath = "//*[@id='password']";
-    String submitButtonXpath = "//div/button[@type='submit']";
-    String baseURL = "https://www.booking.com/";
+    public String closePopUpIconXpath = "//div/button[@aria-label='Dismiss sign-in info.']";
+    public String registerButtonXpath = "//a[contains(.,'Sign in or register')]";
+    public String emailInputFieldXpath = "//div/input[@type='email']";
+    public String continueWithEmailButtonXpath = "//div/button[@type='submit']";
+    public String passwordInputFieldXpath = "//*[@id='password']";
+    public String submitButtonXpath = "//div/button[@type='submit']";
+    public String baseURL = "https://www.booking.com/";
 
     public BookingPage (ChromeDriver newDriver){
         driver = newDriver;

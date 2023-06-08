@@ -1,9 +1,12 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.tests;
 
 
+import by.itacademy.andreialiasiuk.taf.sites.pages.TripadvisorPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import by.itacademy.andreialiasiuk.taf.sites.steps.TripadvisorStep;
+import by.itacademy.andreialiasiuk.taf.sites.utils.Utils;
 
 import java.util.concurrent.TimeUnit;
 

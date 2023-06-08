@@ -1,4 +1,4 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -10,14 +10,13 @@ public class PizzatempoPage {
     private String emailInputFieldName = "astroauth_login";
     private String passwordInputFieldName = "astroauth_pass";
     private String submitButtonName = "astroauth_submit";
-    String baseURL = "https://www.pizzatempo.by/";
+    public String baseURL = "https://www.pizzatempo.by/";
     private String errorPopupContentXpath = "//div[@class='popupContent']";
     public String loginErrorText = "Неверно указано имя пользователя или пароль.\nOk";
     public String alertText = "Заполните форму";
 
 
     public PizzatempoPage(ChromeDriver newDriver) {
-
         driver = newDriver;
     }
 
@@ -44,7 +43,6 @@ public class PizzatempoPage {
     public String getPopupAlertMessage() {
         Alert alert = driver.switchTo().alert();
         return alert.getText();
-
     }
 
 }

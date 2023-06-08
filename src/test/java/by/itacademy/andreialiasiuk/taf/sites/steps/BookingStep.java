@@ -1,5 +1,6 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.steps;
 
+import by.itacademy.andreialiasiuk.taf.sites.pages.BookingPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BookingStep {

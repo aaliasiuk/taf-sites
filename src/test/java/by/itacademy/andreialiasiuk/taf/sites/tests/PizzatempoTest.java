@@ -1,8 +1,11 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.tests;
 
+import by.itacademy.andreialiasiuk.taf.sites.pages.PizzatempoPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import by.itacademy.andreialiasiuk.taf.sites.steps.PizzatempoStep;
+import by.itacademy.andreialiasiuk.taf.sites.utils.Utils;
 
 
 public class PizzatempoTest {

@@ -1,9 +1,12 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
+import by.itacademy.andreialiasiuk.taf.sites.pages.BookingPage;
+import by.itacademy.andreialiasiuk.taf.sites.steps.BookingStep;
+import by.itacademy.andreialiasiuk.taf.sites.utils.Utils;
 
 import java.util.concurrent.TimeUnit;
 
@@ -84,8 +87,8 @@ public class BookingTest {
 
     }
 
-    @AfterMethod
+    /*@AfterMethod
     public void tearDowns() {
         driver.quit();
-    }
+    }*/
 }

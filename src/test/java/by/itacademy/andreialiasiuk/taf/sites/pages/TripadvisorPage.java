@@ -1,4 +1,4 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;

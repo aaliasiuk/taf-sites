@@ -1,4 +1,4 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.utils;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.chrome.ChromeDriver;

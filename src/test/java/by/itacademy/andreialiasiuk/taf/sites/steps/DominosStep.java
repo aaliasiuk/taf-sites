@@ -1,10 +1,10 @@
-package by.itacademy.andreialiasiuk.taf.sites;
+package by.itacademy.andreialiasiuk.taf.sites.steps;
 
+import by.itacademy.andreialiasiuk.taf.sites.pages.DominosPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DominosStep {
     DominosPage page;
-    ChromeDriver driver;
 
     public DominosStep(ChromeDriver driver) {
         page = new DominosPage(driver);
