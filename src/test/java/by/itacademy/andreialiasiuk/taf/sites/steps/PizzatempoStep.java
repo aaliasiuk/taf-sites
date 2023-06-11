@@ -12,8 +12,6 @@ public class PizzatempoStep {
     }
 
     public void keyLoginCredsAndSubmit(String email, String password) {
-        page.sendKeysEmailInputField(email);
-        page.sendKeysPasswordInputField(password);
-        page.clickSubmitButton();
+        page.sendKeysEmailInputField(email).sendKeysPasswordInputField(password).clickSubmitButton();
     }
 }
